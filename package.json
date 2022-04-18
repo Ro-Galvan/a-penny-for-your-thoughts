@@ -1,0 +1,25 @@
+{
+  "name": "a-penny-for-your-thoughts",
+  "version": "1.0.0",
+  "description": "Social Network API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ro-Galvan/a-penny-for-your-thoughts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ro-Galvan/a-penny-for-your-thoughts/issues"
+  },
+  "homepage": "https://github.com/Ro-Galvan/a-penny-for-your-thoughts#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0"
+  }
+}
