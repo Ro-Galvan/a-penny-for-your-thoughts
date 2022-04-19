@@ -25,20 +25,19 @@ const userSchema = new Schema(
       ref: 'User'
     }],
 
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
   }
   );
-  
-  // {
-  //   // Mongoose supports two Schema options to transform Objects after querying MongoDb: toJSON and toObject.
-  //   // Here we are indicating that we want virtuals to be included with our response, overriding the default behavior
-  //   toJSON: {
-  //     virtuals: true,
-  //   },
-  //   id: false,
 
-
-
-
+  // Virtual that retrieves the length of the thought's reactions array field on query
+  postSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
+  });
 
 
 // Initialize User model
