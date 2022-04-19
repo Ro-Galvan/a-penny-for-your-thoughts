@@ -5,22 +5,29 @@ const userSchema = new Schema(
   {
     username: { 
     type: String,
-    // Unique
+    unique: true,
     required: true,
-    // trimmed
+    trim: true,
     },
-    // posts: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'post',
-    //   },
-    // ],
     email: { 
       type: String,
       required: true,
-       // Unique
-      //  Must match a valid email address (look into Mongoose's matching validation)
+      unique: true,
+      match: [/.+@.+\..+/, 'Must be a valid email address']
   },
+    thoughts: [{ 
+      type: Schema.Types.ObjectId,
+      ref: 'Thought'
+    }],
+    
+    friends: [{ 
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }],
+
+  }
+  );
+  
   // {
   //   // Mongoose supports two Schema options to transform Objects after querying MongoDb: toJSON and toObject.
   //   // Here we are indicating that we want virtuals to be included with our response, overriding the default behavior
@@ -28,9 +35,6 @@ const userSchema = new Schema(
   //     virtuals: true,
   //   },
   //   id: false,
-  }
-);
-
 
 
 
@@ -38,6 +42,6 @@ const userSchema = new Schema(
 
 
 // Initialize User model
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
