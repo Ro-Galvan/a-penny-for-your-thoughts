@@ -6,3 +6,5 @@ connect('mongodb://localhost/aPennyForYourThoughtsDB', {
 });
 
 module.exports = connection;
+
+//might have to update to match activity 14

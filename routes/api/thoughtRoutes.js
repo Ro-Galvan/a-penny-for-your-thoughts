@@ -1,9 +1,9 @@
 const router = require('express').Router();
-
+// const { Thought } = require('../models'); //is this needed here??
 
 app.post('/thoughts', (req, res) => {
   // Use db connection to add a document
-  db.collection('petCollection').insertOne( //no schema or db needed for mongo-you can instert directly
+  db.collection('thoughtCollection').insertOne(
     { name: req.body.name, breed: req.body.breed },
     (err, results) => {
       if (err) throw err;
@@ -17,7 +17,7 @@ app.post('/thoughts', (req, res) => {
 // Finds all departments
 app.get('/thoughts', (req, res) => {
   // Using model in route to find all documents that are instances of that model
-  Department.find({}, (err, result) => {
+  Thought.find({}, (err, result) => {
     if (result) {
       res.status(200).json(result);
     } else {
