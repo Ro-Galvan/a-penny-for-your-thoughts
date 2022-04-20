@@ -1,10 +1,9 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
 // Schema 
 
-const opts = {
-  // Make Mongoose use Unix time (seconds since Jan 1, 1970)
-  timestamps: { currentTime: () => Math.floor(Date.now() / 1000) },
+function formatTimestamp (milliseconds) {
+  return new Date(milliseconds).toLocaleString();
 };
 
 const reactionSchema = new Schema(
@@ -27,13 +26,13 @@ const reactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: opts  //Date.now
-      //Use a getter method to format the timestamp on query
+      default: Date.now,
+      // getter method to format the timestamp on query
+      get: formatTimestamp
 
     },
   }
 );
 
-const Reaction = model('Reaction', reactionSchema);
 
-module.exports = Reaction;
+module.exports = reactionSchema;

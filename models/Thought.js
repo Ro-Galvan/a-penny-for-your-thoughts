@@ -1,5 +1,10 @@
+const { get } = require('express/lib/response');
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+
+function formatTimestamp (milliseconds) {
+   return new Date(milliseconds).toLocaleString();
+};
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
@@ -12,8 +17,9 @@ const thoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now
-      //Use a getter method to format the timestamp on query
+      default: Date.now,
+      // getter method to format the timestamp on query
+      get: formatTimestamp
     }, 
     username: {
       type: String,
@@ -21,7 +27,7 @@ const thoughtSchema = new Schema(
     },
     reactions: [{
       type: Schema.Types.ObjectId,
-      ref: 'Reaction' //changed from reactions to match line 37 in reaction.js
+      ref: 'Reaction' 
     }], 
   },
   {
