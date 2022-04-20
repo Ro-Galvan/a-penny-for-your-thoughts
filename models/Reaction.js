@@ -1,3 +1,5 @@
+const { Schema, model } = require('mongoose');
+
 // Schema 
 
 const opts = {
@@ -27,7 +29,11 @@ const reactionSchema = new Schema(
       type: Date,
       default: opts  //Date.now
       //Use a getter method to format the timestamp on query
-     
-    }, 
+
+    },
   }
-  );
+);
+
+const Reaction = model('Reaction', reactionSchema);
+
+module.exports = Reaction;
