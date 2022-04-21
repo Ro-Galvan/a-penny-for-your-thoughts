@@ -5,6 +5,7 @@ const { User, Thought } = require('../models');
 module.exports = {
   getUsers(req, res) {
     User.find()
+    .populate('Thought') //maybe not needed--will replace id with object for thought 
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
@@ -12,6 +13,7 @@ module.exports = {
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       // .select('-__v')
+      .populate('Thought') //activity 23
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })

@@ -23,9 +23,9 @@ module.exports = {
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
-        return Thought.findOneAndUpdate(
+        return User.findOneAndUpdate(
           { _id: req.body.userId },
-          { $push: { thoughts: thought._id } },
+          { $push: { thoughts: thought._id } }, //might need to do $addToSet: activity 23
           { new: true } //need this to get updated posts
         );
       })

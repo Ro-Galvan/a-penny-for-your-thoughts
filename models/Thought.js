@@ -1,6 +1,6 @@
-const { get } = require('express/lib/response');
+// const { get } = require('express/lib/response');
 const { Schema, model } = require('mongoose');
-// const reactionSchema = require('./Reaction');
+const reactionSchema = require('./Reaction');
 
 function formatTimestamp (milliseconds) {
    return new Date(milliseconds).toLocaleString();
@@ -25,10 +25,11 @@ const thoughtSchema = new Schema(
       type: String,
       required: true
     },
-    reactions: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Reaction' 
-    }], 
+    reactions: [reactionSchema],
+    // [{
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'Reaction' 
+    // }], 
   },
   {
     toJSON: {
@@ -40,8 +41,8 @@ const thoughtSchema = new Schema(
 
 // virtual property that retrieves the length of the thought's reactions array field on query
 thoughtSchema.virtual('reactionCount').get(function () {
-  // return this.reactions.length;  
-  return `${this.reactions}`.length;  
+  return this.reactions.length;  
+  // return `${this.reactions}`.length;  
 });
 
 // Initialize Thought model

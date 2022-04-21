@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 
 // look at example 25 if not correct
 // Schema 
@@ -10,11 +10,8 @@ function formatTimestamp (milliseconds) {
 const reactionSchema = new Schema(
   {
     reactionId: {
-      type: String,
       type: Schema.Types.ObjectId,
-      required: true,
-      minLength: 1,
-      maxLength: 280
+      default: () => new Types.ObjectId(),
     },
     reactionBody: {
       type: String,
