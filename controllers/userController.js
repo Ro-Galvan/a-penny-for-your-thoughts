@@ -1,5 +1,6 @@
 const { User, Thought } = require('../models');
 
+// /api/users
 // GET all users
 module.exports = {
   getUsers(req, res) {
