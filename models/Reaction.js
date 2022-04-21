@@ -1,5 +1,6 @@
 const { Schema } = require('mongoose');
 
+// look at example 25 if not correct
 // Schema 
 
 function formatTimestamp (milliseconds) {
@@ -31,6 +32,12 @@ const reactionSchema = new Schema(
       get: formatTimestamp
 
     },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+    id: false,
   }
 );
 
