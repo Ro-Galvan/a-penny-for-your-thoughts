@@ -35,7 +35,7 @@ const userSchema = new Schema(
   );
 
   // Virtual that retrieves the length of the thought's reactions array field on query
-  postSchema.virtual('friendCount').get(function () {
+  userSchema.virtual('friendCount').get(function () {
     return this.friends.length;
   });
 
