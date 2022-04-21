@@ -1,11 +1,13 @@
-const User = require('../models/User');
+const { User, Thought } = require('../models');
 
+// GET all users
 module.exports = {
   getUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
+  // GET a single user by its _id and populated thought and friend data
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       // .select('-__v')
@@ -16,10 +18,22 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // create a new user
+  // POST/create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
+
+  // PUT to update a user by its _id
+
+  // DELETE to remove user by its _id
+
+
+//   /api/users/:userId/friends/:friendId
+
+// POST to add a new friend to a user's friend list
+
+// DELETE to remove a friend from a user's friend list
+
 };

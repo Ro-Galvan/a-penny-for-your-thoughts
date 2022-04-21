@@ -6,10 +6,12 @@ const {
   // createComment,
 } = require('../../controllers/thoughtController');
 
-// /api/comments
+// /api/thoughts
 router.route('/').get(getComments).post(createComment);
 
-// /api/comments/:commentId
-router.route('/:commentId').get(getSingleComment);
+// /api/comments/:thoughtId
+router.route('/:thoughtId').get(getSingleComment);
+
+// /api/thoughts/:thoughtId/reactions
 
 module.exports = router;
