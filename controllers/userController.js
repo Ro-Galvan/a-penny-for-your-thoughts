@@ -5,21 +5,24 @@ const { User, Thought } = require('../models');
 module.exports = {
   getUsers(req, res) {
     User.find()
-    .populate('Thought') //maybe not needed--will replace id with object for thought 
+    // .populate('Thought') //maybe not needed--will replace id with object for thought 
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
   // GET a single user by its _id and populated thought and friend data
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
-      // .select('-__v')
-      .populate('Thought') //activity 23
-      .then((user) =>
-        !user
-          ? res.status(404).json({ message: 'No user with that ID' })
-          : res.json(user)
-      )
-      .catch((err) => res.status(500).json(err));
+    .select('-__v')
+    .populate('thoughts') //activity 23- from User.js line 18
+    .then((user) =>
+    !user
+    ? res.status(404).json({ message: 'No user with that ID' })
+    : res.json(user)
+    )
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err)
+    });
   },
   // POST/create a new user
   createUser(req, res) {

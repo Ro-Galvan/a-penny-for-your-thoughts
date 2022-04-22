@@ -1,5 +1,6 @@
 // const { get } = require('express/lib/response');
 const { Schema, model } = require('mongoose');
+// importing reaction schema
 const reactionSchema = require('./Reaction');
 
 function formatTimestamp (milliseconds) {
@@ -26,10 +27,6 @@ const thoughtSchema = new Schema(
       required: true
     },
     reactions: [reactionSchema],
-    // [{
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Reaction' 
-    // }], 
   },
   {
     toJSON: {
