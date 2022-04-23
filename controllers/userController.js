@@ -34,11 +34,26 @@ module.exports = {
   // PUT to update a user by its _id
 
   // DELETE to remove user by its _id
-
+  deleteUser(req, res) {
+    User.findOneAndDelete({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
+      )
+      .then(() => res.json({ message: 'user and thoughts deleted!' }))
+      .catch((err) => res.status(500).json(err));
+  },
 
 //   /api/users/:userId/friends/:friendId
-
 // POST to add a new friend to a user's friend list
+addFriend(req, res) {
+  // find and update 
+  User.findByIdAndUpdate(req.params.userId, 
+    // {push user id into friend array})
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => res.status(500).json(err));
+},
 
 // DELETE to remove a friend from a user's friend list
 
