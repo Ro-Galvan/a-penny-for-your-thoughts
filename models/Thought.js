@@ -3,9 +3,10 @@ const { Schema, model } = require('mongoose');
 // importing reaction schema
 const reactionSchema = require('./Reaction');
 
-function formatTimestamp (milliseconds) {
-   return new Date(milliseconds).toLocaleString();
-};
+const dateFormat = (date) => new Date(date).toLocaleString();
+// function formatTimestamp2 (milliseconds) {
+//    return new Date(milliseconds).toLocaleString();
+// };
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
@@ -20,13 +21,13 @@ const thoughtSchema = new Schema(
       type: Date,
       default: Date.now,
       // getter method to format the timestamp on query
-      get: formatTimestamp
+      get: timestamp => dateFormat(timestamp)
     }, 
     username: {
       type: String,
       required: true
     },
-    reactions: [reactionSchema],
+    reactions: [reactionSchema]
   },
   {
     toJSON: {
