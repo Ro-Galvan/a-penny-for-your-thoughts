@@ -21,11 +21,11 @@ Friends:
   - Add a friend
   - Delete a friend 
 
-[link to GitHub repository](https://github.com/Ro-Galvan/company-employee-database)
+[link to GitHub repository](https://github.com/Ro-Galvan/a-penny-for-your-thoughts)
 
 [video demo -part 1](https://drive.google.com/file/d/1Dt3W-V7QseLCvClvXCA0cNiS7SSBU7fE/view)
 
-[video demo -part 2]()
+[video demo -part 2](https://drive.google.com/file/d/1vtDeteNJlN3rw6K0n0ng43_8BnlaPDYk/view)
 
 # Table of Contents
   - [Installation](#installation)
@@ -36,13 +36,15 @@ Friends:
 # Installation
   Install the below packages/modules from node.js by running `npm install` :
 - mongoose 
+
+   **if you don't have mongoDB installed, make sure to install it first
+
 - express
-  **if you don't have mongoDB installed, make sure to install it first
-- To test and seed the database go to Insomnia
-- After you seed your db in Insomnia you can always go to MongoDb Compass to clear it or dirctly from the terminal by doing `mongo` and entering the approriate commands
+- Run `npm start` to start the application and to test and seed (enter in insomnia manually) the database go to Insomnia
+- After you seed your db in Insomnia you can always go to MongoDb Compass to clear it or dirctly from the terminal by doing `mongo` and entering the appropriate commands
 
 # Usage
-![Insomnia setup](./assets/insomnia-screenshot.jpg)
+![Insomnia setup](./assets/insomnia-overview.png)
 
 # License
  MIT
