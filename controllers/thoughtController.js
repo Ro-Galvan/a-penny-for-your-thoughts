@@ -87,17 +87,20 @@ addReaction(req, res) {
 // DELETE to pull and remove a reaction by the reaction's reactionId value
 deleteReaction(req, res) {
   console.log('You are deleting a reaction');
-  console.log(req.params.reactionId);
+  console.log(req.params.reactionId, req.params.thoughtId);
   Thought.findOneAndUpdate(
     { _id: req.params.thoughtId },
     { $pull: { reactions: { reactionId: req.params.reactionId } } },
     { runValidators: true, new: true }
-  )
+  ) 
+  // .then(function(thought){
+  //   console.log(thought);
+  // })
     .then((thought) =>
       !thought
         ? res
           .status(404)
-          .json({ message: 'No reaction found with that thoughtID :(' })
+          .json({ message: 'No reaction found with that reactionID :(' })
         : res.json(thought)
     )
     .catch((err) => res.status(500).json(err));

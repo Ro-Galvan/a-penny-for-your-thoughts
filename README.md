@@ -25,7 +25,7 @@ Friends:
 
 [video demo -part 1](https://drive.google.com/file/d/1Dt3W-V7QseLCvClvXCA0cNiS7SSBU7fE/view)
 
-[video demo -part 2](https://drive.google.com/file/d/1vtDeteNJlN3rw6K0n0ng43_8BnlaPDYk/view)
+[video demo -part 2](https://drive.google.com/file/d/1ghLnfwvTgpq7sBk-yB4z4s2z_RSu3oAy/view)
 
 # Table of Contents
   - [Installation](#installation)
@@ -41,7 +41,7 @@ Friends:
 
 - express
 - Run `npm start` to start the application and to test and seed (enter in insomnia manually) the database go to Insomnia
-- After you seed your db in Insomnia you can always go to MongoDb Compass to clear it or dirctly from the terminal by doing `mongo` and entering the appropriate commands
+- After you seed your db in Insomnia you can always go to MongoDb Compass to clear it or dirctly from the terminal by entering `mongo` and entering the appropriate commands
 
 # Usage
 ![Insomnia setup](./assets/insomnia-overview.png)
