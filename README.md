@@ -2,7 +2,7 @@
 Social Network API
 
 # Description
-I built the back end for an social media site called A Penny For Your Thoughts.
+I built the back end for an social media site called A Penny For Your Thoughts. Routes were created for each of the following actions:
 
 Users:
   - Create an account
@@ -40,8 +40,9 @@ Friends:
    **if you don't have mongoDB installed, make sure to install it first
 
 - express
-- Run `npm start` to start the application and to test and seed (enter in insomnia manually) the database go to Insomnia
-- After you seed your db in Insomnia you can always go to MongoDb Compass to clear it or dirctly from the terminal by entering `mongo` and entering the appropriate commands
+- Run `npm start` or `nodemon` to start the application and to test and seed (enter in insomnia manually) the database go to Insomnia
+- After you seed your db in Insomnia you can always go to MongoDb Compass to clear it or directly from the VS terminal by entering `mongo` and entering the appropriate commands.
+- To exit out of the application, type `Ctrl + C` for windows or `Command + C`
 
 # Usage
 ![Insomnia setup](./assets/insomnia-overview.png)
